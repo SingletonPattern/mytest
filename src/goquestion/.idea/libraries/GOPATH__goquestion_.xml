@@ -1,0 +1,27 @@
+<component name="libraryTable">
+  <library name="GOPATH &lt;goquestion&gt;">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../beeapi" />
+      <root url="file://$PROJECT_DIR$/../gopkg.in" />
+      <root url="file://$PROJECT_DIR$/../goframe2" />
+      <root url="file://$PROJECT_DIR$/../bee" />
+      <root url="file://$PROJECT_DIR$/../github.com" />
+      <root url="file://$PROJECT_DIR$/../golang.org" />
+      <root url="file://$PROJECT_DIR$/../goframe" />
+      <root url="file://$PROJECT_DIR$/../bee2" />
+    </CLASSES>
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/../beeapi" />
+      <root url="file://$PROJECT_DIR$/../gopkg.in" />
+      <root url="file://$PROJECT_DIR$/../goframe2" />
+      <root url="file://$PROJECT_DIR$/../bee" />
+      <root url="file://$PROJECT_DIR$/../github.com" />
+      <root url="file://$PROJECT_DIR$/../golang.org" />
+      <root url="file://$PROJECT_DIR$/../goframe" />
+      <root url="file://$PROJECT_DIR$/../bee2" />
+    </SOURCES>
+    <excluded>
+      <root url="file://$PROJECT_DIR$" />
+    </excluded>
+  </library>
+</component>

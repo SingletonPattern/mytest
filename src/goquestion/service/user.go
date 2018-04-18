@@ -1,0 +1,85 @@
+package service
+
+import (
+	"time"
+	"goquestion/common"
+	"fmt"
+	//"database/sql"
+	"database/sql"
+	//"reflect"
+	//"encoding/json"
+)
+
+type SubObject struct {
+	isCache bool
+	Id string
+}
+
+type User struct {
+	SubObject
+	Name         string
+	Username     string
+	Password     string
+	Phone        string
+	Sex          string
+	Status       string
+	CredentialNo string
+	Email        string
+	AliAccount   string
+	Portrait     string
+	//OrgId        string
+	//Introduce    string
+	CreateTime   time.Time
+	//CityId       string
+	//ValidFlag    string
+}
+
+//func (s *SubObject) AfterFind() (err error) {
+//	fmt.Println("AfterFind")
+//	return
+//}
+type UserRole struct {
+	Username string
+	Rolename string
+	Sex int
+	Status bool
+	CreateTime time.Time
+}
+
+func Select() []UserRole{
+	id := "1ee7dd76-4283-4046-b0b0-50898497d133"
+	sql := "select u.name username,u.sex sex,u.status status from  usertable u where u.id = ? "
+	var userroles []UserRole
+	Query(&userroles,sql,id)
+	return userroles
+}
+type AccountList struct {
+	Id string
+	Name sql.NullString
+	Simple_spell sql.NullString
+}
+func Acclist() []AccountList{
+	var acc []AccountList
+	sql := "SELECT * FROM city"
+	err := common.Db.Select(&acc,sql)
+	if err!=nil{
+		fmt.Println(err)
+	}
+	return acc
+}
+
+func Save() bool{
+
+	tx := common.Db.MustBegin()
+	defer func(){
+		if r:=recover();r!=nil{
+			fmt.Println("Recovered in testPanic2Error", r)
+			tx.Rollback()
+		}
+	}()
+	tx.MustExec("insert INTO usertable (id,`name`) values(3,'wang')")
+	tx.MustExec("insert INTO usertable (id,`name`) values(4,'wang')")
+	tx.MustExec("insert INTO usertable (id,`name`) values(3,'wang')")
+	tx.Commit()
+	return true
+}
